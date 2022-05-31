@@ -1,6 +1,7 @@
 package Database;
 
-import Process.SanPhamBUS;
+import ConnectDB.MyConnect;
+import Process.SanPhamProcess;
 import Model.SanPham;
 import Model.ThongKe;
 
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 /**
  * @author User
  */
-public class ThongKeDAO {
+public class ThongKeDB {
     public ThongKe getThongKe(int nam) {
         ThongKe thongKe = new ThongKe();
         int[] tongThuQuy = new int[4];
@@ -46,7 +47,7 @@ public class ThongKeDAO {
             Statement st = MyConnect.conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             ArrayList<SanPham> dssp = new ArrayList<>();
-            SanPhamBUS spBUS = new SanPhamBUS();
+            SanPhamProcess spBUS = new SanPhamProcess();
             while (rs.next()) {
                 SanPham sp = new SanPham();
                 sp.setMaSP(rs.getInt(1));

@@ -1,6 +1,6 @@
 package View;
 
-import Process.NhaCungCapBUS;
+import Process.NhaCungCapProcess;
 
 public class DlgThemNhaCungCap extends javax.swing.JDialog {
 
@@ -140,8 +140,8 @@ public class DlgThemNhaCungCap extends javax.swing.JDialog {
 
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
-        boolean flag = nhaCungCapBUS.themNhaCungCap(txtTenNCC.getText(), txtDiaChi.getText(), txtDienThoai.getText());
+        NhaCungCapProcess nhaCungCapProcess = new NhaCungCapProcess();
+        boolean flag = nhaCungCapProcess.themNhaCungCap(txtTenNCC.getText(), txtDiaChi.getText(), txtDienThoai.getText());
         checkThemNCC = flag;
         if (flag) {
             this.dispose();

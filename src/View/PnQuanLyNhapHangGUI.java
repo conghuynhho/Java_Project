@@ -1,15 +1,15 @@
 package View;
 
-import Process.DangNhapBUS;
-import Process.NhanVienBUS;
-import Process.SanPhamBUS;
+import Process.DangNhapProcess;
+import Process.NhanVienProcess;
+import Process.SanPhamProcess;
 import Model.CTPhieuNhap;
 import Model.NhanVien;
 import Model.SanPham;
 import Utils.MyDialog;
 import Utils.MyTable;
-import Process.CTPhieuNhapBUS;
-import Process.PhieuNhapBUS;
+import Process.CTPhieuNhapProcess;
+import Process.PhieuNhapProcess;
 import Model.PhieuNhap;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -32,10 +32,10 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         loadDataTableCTPhieuNhap();
     }
 
-    private SanPhamBUS sanPhamBUS = new SanPhamBUS();
-    private NhanVienBUS nhanVienBUS = new NhanVienBUS();
-    private PhieuNhapBUS phieuNhapBUS = new PhieuNhapBUS();
-    private CTPhieuNhapBUS ctPhieuNhapBUS = new CTPhieuNhapBUS();
+    private SanPhamProcess sanPhamProcess = new SanPhamProcess();
+    private NhanVienProcess nhanVienProcess = new NhanVienProcess();
+    private PhieuNhapProcess phieuNhapProcess = new PhieuNhapProcess();
+    private CTPhieuNhapProcess ctPhieuNhapProcess = new CTPhieuNhapProcess();
     private DefaultTableModel dtmKho, dtmGioNhap, dtmPhieuNhap, dtmCTPhieuNhap;
 
     private void customControls() {
@@ -823,7 +823,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
     private void loadDataTableKho() {
         dtmKho.setRowCount(0);
-        ArrayList<SanPham> dssp = sanPhamBUS.getListSanPham();
+        ArrayList<SanPham> dssp = sanPhamProcess.getListSanPham();
         for (SanPham sp : dssp) {
             if (sp.getMaLoai() != 1) {
                 Vector vec = new Vector();
@@ -837,7 +837,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
     private void loadDataTableKho(String tuKhoa) {
         dtmKho.setRowCount(0);
-        ArrayList<SanPham> dssp = sanPhamBUS.getSanPhamTheoTen(tuKhoa);
+        ArrayList<SanPham> dssp = sanPhamProcess.getSanPhamTheoTen(tuKhoa);
         for (SanPham sp : dssp) {
             if (sp.getMaLoai() != 1) {
                 Vector vec = new Vector();
@@ -851,7 +851,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
     private void loadDataCmbNhanVien() {
         cmbNhanVien.removeAllItems();
-        ArrayList<NhanVien> dsnv = nhanVienBUS.getDanhSachNhanVien();
+        ArrayList<NhanVien> dsnv = nhanVienProcess.getDanhSachNhanVien();
         if (dsnv != null) {
             for (NhanVien nv : dsnv) {
                 cmbNhanVien.addItem(nv.getMaNV() + " - " + nv.getHo() + " " + nv.getTen());
@@ -860,7 +860,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
         for (int i = 0; i < cmbNhanVien.getItemCount(); i++) {
             String[] cmbValue = cmbNhanVien.getItemAt(i).split(" - ");
-            if (cmbValue[0].equals(DangNhapBUS.taiKhoanLogin.getMaNhanVien() + "")) {
+            if (cmbValue[0].equals(DangNhapProcess.taiKhoanLogin.getMaNhanVien() + "")) {
                 cmbNhanVien.setSelectedIndex(i);
                 break;
             }
@@ -871,8 +871,8 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
     DecimalFormat dcf = new DecimalFormat("###,###");
 
     private void loadDataTablePhieuNhap() {
-        phieuNhapBUS.docDanhSach();
-        ArrayList<PhieuNhap> dspn = phieuNhapBUS.getListPhieuNhap();
+        phieuNhapProcess.docDanhSach();
+        ArrayList<PhieuNhap> dspn = phieuNhapProcess.getListPhieuNhap();
         duaDataVaoTablePhieuNhap(dspn);
     }
 
@@ -890,20 +890,20 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
     }
 
     private void loadDataTablePhieuNhapTheoGia(String giaThap, String giaCao) {
-        phieuNhapBUS.docDanhSach();
-        ArrayList<PhieuNhap> dspn = phieuNhapBUS.getListPhieuNhapTheoGia(giaThap, giaCao);
+        phieuNhapProcess.docDanhSach();
+        ArrayList<PhieuNhap> dspn = phieuNhapProcess.getListPhieuNhapTheoGia(giaThap, giaCao);
         duaDataVaoTablePhieuNhap(dspn);
     }
 
     private void loadDataTablePhieuNhapTheoNgay(String tuNgay, String denNgay) {
-        phieuNhapBUS.docDanhSach();
-        ArrayList<PhieuNhap> dspn = phieuNhapBUS.getListPhieuNhapTheoNgay(tuNgay, denNgay);
+        phieuNhapProcess.docDanhSach();
+        ArrayList<PhieuNhap> dspn = phieuNhapProcess.getListPhieuNhapTheoNgay(tuNgay, denNgay);
         duaDataVaoTablePhieuNhap(dspn);
     }
 
     private void loadDataTableCTPhieuNhap() {
         dtmCTPhieuNhap.setRowCount(0);
-        ArrayList<CTPhieuNhap> dsct = ctPhieuNhapBUS.getListPhieuNhap();
+        ArrayList<CTPhieuNhap> dsct = ctPhieuNhapProcess.getListPhieuNhap();
         if (dsct != null) {
             for (CTPhieuNhap ct : dsct) {
                 Vector vec = new Vector();
@@ -918,7 +918,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
 
     private void loadDataTableCTPhieuNhap(String maPN) {
         dtmCTPhieuNhap.setRowCount(0);
-        ArrayList<CTPhieuNhap> dsct = ctPhieuNhapBUS.getListPhieuNhap(maPN);
+        ArrayList<CTPhieuNhap> dsct = ctPhieuNhapProcess.getListPhieuNhap(maPN);
         if (dsct != null) {
             for (CTPhieuNhap ct : dsct) {
                 Vector vec = new Vector();
@@ -1027,7 +1027,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         xuatPhieuNhap.setVisible(true);
         if (xuatPhieuNhap.getCheckNhap()) {
             dtmGioNhap.setRowCount(0);
-            sanPhamBUS.docListSanPham();
+            sanPhamProcess.docListSanPham();
             loadDataTableKho();
         }
     }//GEN-LAST:event_btnXacNhanActionPerformed
@@ -1049,7 +1049,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
             return;
         }
         String maPN = tblPhieuNhap.getValueAt(row, 0) + "";
-        PhieuNhap pn = phieuNhapBUS.timPhieuNhap(maPN);
+        PhieuNhap pn = phieuNhapProcess.timPhieuNhap(maPN);
         txtMaPN.setText(pn.getMaPN() + "");
         txtMaNCC.setText(pn.getMaNCC() + "");
         txtMaNV.setText(pn.getMaNV() + "");
@@ -1069,7 +1069,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         if (row < 0) {
             return;
         }
-        String tenSP = sanPhamBUS.getTenSP(Integer.parseInt(tblCTPhieuNhap.getValueAt(row, 0) + ""));
+        String tenSP = sanPhamProcess.getTenSP(Integer.parseInt(tblCTPhieuNhap.getValueAt(row, 0) + ""));
         txtCTSanPham.setText(tenSP);
         txtCTSoLuong.setText(tblCTPhieuNhap.getValueAt(row, 1) + "");
         txtCTDonGia.setText(tblCTPhieuNhap.getValueAt(row, 2) + "");
@@ -1093,7 +1093,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDenNgayActionPerformed
 
     private void btnResetKhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetKhoActionPerformed
-        sanPhamBUS.docListSanPham();
+        sanPhamProcess.docListSanPham();
         loadDataTableKho();
         dtmGioNhap.setRowCount(0);
     }//GEN-LAST:event_btnResetKhoActionPerformed

@@ -1,7 +1,7 @@
 package View;
 
-import Process.CTHoaDonBUS;
-import Process.HoaDonBUS;
+import Process.CTHoaDonProcess;
+import Process.HoaDonProcess;
 import Utils.MyDialog;
 
 import java.awt.Image;
@@ -18,8 +18,8 @@ import javax.swing.event.DocumentListener;
 
 public class XuatHoaDonGUI extends JDialog {
 
-    private HoaDonBUS hoadonBUS = new HoaDonBUS();
-    private CTHoaDonBUS ctHoaDonBUS = new CTHoaDonBUS();
+    private HoaDonProcess hoadonProcess = new HoaDonProcess();
+    private CTHoaDonProcess ctHoaDonProcess = new CTHoaDonProcess();
     private DlgTimKhach timKhachUI = new DlgTimKhach();
     private DlgTimMaGiam timMaUI;
 
@@ -331,14 +331,14 @@ public class XuatHoaDonGUI extends JDialog {
         xuLyHienThiHoaDon();
         btnInHoaDon.setEnabled(true);
 
-        hoadonBUS.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), nhanVien, tongTien, "Đã thanh toán");
+        hoadonProcess.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), nhanVien, tongTien, "Đã thanh toán");
 
         for (Vector vec : dsGioHang) {
             String maSP = vec.get(0) + "";
             String soLuong = vec.get(2) + "";
             String donGia = vec.get(3) + "";
             String thanhTien = vec.get(4) + "";
-            ctHoaDonBUS.addCTHoaDon(maSP, soLuong, donGia, thanhTien);
+            ctHoaDonProcess.addCTHoaDon(maSP, soLuong, donGia, thanhTien);
         }
         btnThanhToan.setEnabled(false);
         btnTimMaGiam.setEnabled(false);

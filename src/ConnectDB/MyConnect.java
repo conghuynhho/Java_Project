@@ -1,4 +1,4 @@
-package Database;
+package ConnectDB;
 
 import Utils.MyDialog;
 import com.mysql.jdbc.Driver;

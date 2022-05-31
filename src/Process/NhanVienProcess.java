@@ -1,17 +1,17 @@
 package Process;
 
-import Database.NhanVienDAO;
+import Database.NhanVienDB;
 import Model.NhanVien;
 import Utils.MyDialog;
 
 import java.util.ArrayList;
 
-public class NhanVienBUS {
+public class NhanVienProcess {
 
-    private NhanVienDAO nvDAO = new NhanVienDAO();
+    private NhanVienDB nvDAO = new NhanVienDB();
     private ArrayList<NhanVien> listNhanVien = null;
 
-    public NhanVienBUS() {
+    public NhanVienProcess() {
         docDanhSach();
     }
 

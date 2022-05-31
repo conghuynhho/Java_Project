@@ -1,7 +1,7 @@
 package View;
 
-import Process.LoaiBUS;
-import Process.SanPhamBUS;
+import Process.LoaiProcess;
+import Process.SanPhamProcess;
 import Model.LoaiSP;
 import Model.SanPham;
 
@@ -48,8 +48,8 @@ public class PnQuanLySanPhamGUI extends JPanel {
         addEventsSanPham();
     }
 
-    SanPhamBUS spBUS = new SanPhamBUS();
-    LoaiBUS loaiBUS = new LoaiBUS();
+    SanPhamProcess spBUS = new SanPhamProcess();
+    LoaiProcess loaiProcess = new LoaiProcess();
     final Color colorPanel = new Color(247, 247, 247);
     MyTable tblSanPham;
     DefaultTableModel dtmSanPham;
@@ -436,7 +436,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
             Vector vec = new Vector();
             vec.add(sp.getMaSP());
             vec.add(sp.getTenSP());
-            String tenLoai = loaiBUS.getTenLoai(sp.getMaLoai());
+            String tenLoai = loaiProcess.getTenLoai(sp.getMaLoai());
             vec.add(tenLoai);
             vec.add(dcf.format(sp.getDonGia()));
             vec.add(dcf.format(sp.getSoLuong()));
@@ -449,7 +449,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     private void loadDataCmbLoai() {
         cmbLoai.removeAllItems();
 
-        ArrayList<LoaiSP> dsl = loaiBUS.getDanhSachLoai();
+        ArrayList<LoaiSP> dsl = loaiProcess.getDanhSachLoai();
         cmbLoai.addItem("0 - Chọn loại");
         for (LoaiSP loai : dsl) {
             cmbLoai.addItem(loai.getMaLoai() + " - " + loai.getTenLoai());
@@ -568,7 +568,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
             Vector vec = new Vector();
             vec.add(sp.getMaSP());
             vec.add(sp.getTenSP());
-            String tenLoai = loaiBUS.getTenLoai(sp.getMaLoai());
+            String tenLoai = loaiProcess.getTenLoai(sp.getMaLoai());
             vec.add(tenLoai);
             vec.add(dcf.format(sp.getDonGia()));
             vec.add(dcf.format(sp.getSoLuong()));

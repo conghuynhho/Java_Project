@@ -7,9 +7,9 @@ import Utils.MyTable;
 import Utils.ImagePanel;
 import static Main.Main.changLNF;
 
-import Process.NhanVienBUS;
-import Process.PhanQuyenBUS;
-import Process.TaiKhoanBUS;
+import Process.NhanVienProcess;
+import Process.PhanQuyenProcess;
+import Process.TaiKhoanProcess;
 import Model.NhanVien;
 import Model.PhanQuyen;
 
@@ -37,8 +37,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         addEventsPhanQuyen();
     }
 
-    private PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
-    private NhanVienBUS nhanVienBUS = new NhanVienBUS();
+    private PhanQuyenProcess phanQuyenProcess = new PhanQuyenProcess();
+    private NhanVienProcess nhanVienProcess = new NhanVienProcess();
 
     JLabel lblTabbedNhanVien, lblTabbedQuyen;
     final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
@@ -555,7 +555,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             return;
         }
         String tenQuyen = cmbQuyen.getSelectedItem() + "";
-        boolean flag = phanQuyenBUS.xoaQuyen(tenQuyen);
+        boolean flag = phanQuyenProcess.xoaQuyen(tenQuyen);
         if (flag) {
             loadDataCmbQuyen();
         }
@@ -564,7 +564,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     private void xuLyThemQuyen() {
         String tenQuyen = JOptionPane.showInputDialog("Nhập tên quyền");
 
-        boolean flag = phanQuyenBUS.themQuyen(tenQuyen);
+        boolean flag = phanQuyenProcess.themQuyen(tenQuyen);
         if (flag) {
             loadDataCmbQuyen();
         }
@@ -582,14 +582,14 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         int khachHang = ckbQLKhachHang.isSelected() ? 1 : 0;
         int thongKe = ckbThongKe.isSelected() ? 1 : 0;
 
-        boolean flag = phanQuyenBUS.suaQuyen(tenQuyen, nhapHang, sanPham, nhanVien, khachHang, thongKe);
+        boolean flag = phanQuyenProcess.suaQuyen(tenQuyen, nhapHang, sanPham, nhanVien, khachHang, thongKe);
         if (flag) {
             loadDataCmbQuyen();
         }
     }
 
     private void xuLyHienThiChiTietQuyen() {
-        ArrayList<PhanQuyen> dsq = phanQuyenBUS.getListQuyen();
+        ArrayList<PhanQuyen> dsq = phanQuyenProcess.getListQuyen();
         PhanQuyen phanQuyen = new PhanQuyen();
         for (PhanQuyen pq : dsq) {
             if (pq.getQuyen().equals(cmbQuyen.getSelectedItem())) {
@@ -625,8 +625,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     private void loadDataCmbQuyen() {
-        phanQuyenBUS.docDanhSachQuyen();
-        ArrayList<PhanQuyen> dsq = phanQuyenBUS.getListQuyen();
+        phanQuyenProcess.docDanhSachQuyen();
+        ArrayList<PhanQuyen> dsq = phanQuyenProcess.getListQuyen();
         cmbQuyen.removeAllItems();
         cmbQuyen.addItem("Chọn quyền");
         for (PhanQuyen pq : dsq) {
@@ -655,8 +655,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     private void xuLyKhoaTaiKhoan() {
-        TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
-        taiKhoanBUS.khoaTaiKhoan(txtMaNV.getText());
+        TaiKhoanProcess taiKhoanProcess = new TaiKhoanProcess();
+        taiKhoanProcess.khoaTaiKhoan(txtMaNV.getText());
         loadDataTblNhanVien();
     }
 
@@ -676,7 +676,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             String gioiTinh = tblNhanVien.getValueAt(i, 3) + "";
             String chucVu = tblNhanVien.getValueAt(i, 4) + "";
 
-            nhanVienBUS.nhapExcel(ho, ten, gioiTinh, chucVu);
+            nhanVienProcess.nhapExcel(ho, ten, gioiTinh, chucVu);
 
         }
     }
@@ -688,9 +688,9 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyXoaNhanVien() {
         String ma = txtMaNV.getText();
-        boolean flag = nhanVienBUS.xoaNhanVien(ma);
+        boolean flag = nhanVienProcess.xoaNhanVien(ma);
         if (flag) {
-            nhanVienBUS.docDanhSach();
+            nhanVienProcess.docDanhSach();
             loadDataTblNhanVien();
         }
     }
@@ -705,8 +705,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         String ten = txtTen.getText();
         String gioiTinh = cmbGioiTinh.getSelectedItem() + "";
         String chucVu = txtChucVu.getText();
-        if (nhanVienBUS.updateNhanVien(ma, ho, ten, gioiTinh, chucVu)) {
-            nhanVienBUS.docDanhSach();
+        if (nhanVienProcess.updateNhanVien(ma, ho, ten, gioiTinh, chucVu)) {
+            nhanVienProcess.docDanhSach();
             loadDataTblNhanVien();
         }
     }
@@ -720,14 +720,14 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         String ten = txtTen.getText();
         String gioiTinh = cmbGioiTinh.getSelectedItem() + "";
         String chucVu = txtChucVu.getText();
-        if (nhanVienBUS.themNhanVien(ho, ten, gioiTinh, chucVu)) {
-            nhanVienBUS.docDanhSach();
+        if (nhanVienProcess.themNhanVien(ho, ten, gioiTinh, chucVu)) {
+            nhanVienProcess.docDanhSach();
             loadDataTblNhanVien();
         }
     }
 
     private void xuLyTimKiemNhanVien() {
-        ArrayList<NhanVien> dsnv = nhanVienBUS.timNhanVien(txtTimNV.getText());
+        ArrayList<NhanVien> dsnv = nhanVienProcess.timNhanVien(txtTimNV.getText());
         dtmNhanVien.setRowCount(0);
         for (NhanVien nv : dsnv) {
             Vector vec = new Vector();
@@ -759,7 +759,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void loadDataTblNhanVien() {
         dtmNhanVien.setRowCount(0);
-        ArrayList<NhanVien> dsnv = nhanVienBUS.getDanhSachNhanVien();
+        ArrayList<NhanVien> dsnv = nhanVienProcess.getDanhSachNhanVien();
 
         for (NhanVien nv : dsnv) {
             Vector vec = new Vector();
@@ -768,7 +768,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             vec.add(nv.getTen());
             vec.add(nv.getGioiTinh());
             vec.add(nv.getChucVu());
-            int trangThai = taiKhoanBUS.getTrangThai(nv.getMaNV() + "");
+            int trangThai = taiKhoanProcess.getTrangThai(nv.getMaNV() + "");
             if (trangThai == 0) {
                 vec.add("Khoá");
             }
@@ -782,6 +782,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         }
     }
 
-    TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
+    TaiKhoanProcess taiKhoanProcess = new TaiKhoanProcess();
 
 }

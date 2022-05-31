@@ -1,12 +1,12 @@
 package Process;
 
-import Database.DangNhapDAO;
+import Database.DangNhapDB;
 import Model.TaiKhoan;
 import Utils.MyDialog;
 
 import java.io.*;
 
-public class DangNhapBUS {
+public class DangNhapProcess {
 
     private final static int EMPTY_ERROR = 1;
     private final static int WRONG_ERROR = 2;
@@ -21,15 +21,15 @@ public class DangNhapBUS {
         tk.setTenDangNhap(user);
         tk.setMatKhau(password);
 
-        DangNhapDAO dangNhapDAO = new DangNhapDAO();
-        TaiKhoan account = dangNhapDAO.dangNhap(tk);
+        DangNhapDB dangNhapDB = new DangNhapDB();
+        TaiKhoan account = dangNhapDB.dangNhap(tk);
         taiKhoanLogin = account;
 
         if (account == null) {
             new MyDialog("Sai thông tin đăng nhập hoặc tài khoản đã bị khoá!", MyDialog.ERROR_DIALOG);
         } else {
-            PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
-            phanQuyenBUS.kiemTraQuyen(account.getQuyen());
+            PhanQuyenProcess phanQuyenProcess = new PhanQuyenProcess();
+            phanQuyenProcess.kiemTraQuyen(account.getQuyen());
             xuLyGhiNhoDangNhap(user, password, selected);
             new MyDialog("Đăng nhập thành công!", MyDialog.SUCCESS_DIALOG);
 //            new MyDialog("Vì tình hình dịch Covid phức tạp, cửa hàng chỉ thực hiện bán mang về!", MyDialog.INFO_DIALOG);
@@ -71,8 +71,8 @@ public class DangNhapBUS {
         tk.setTenDangNhap(user);
         tk.setMatKhau(password);
 
-        DangNhapDAO dangNhapDAO = new DangNhapDAO();
-        TaiKhoan account = dangNhapDAO.dangNhap(tk);
+        DangNhapDB dangNhapDB = new DangNhapDB();
+        TaiKhoan account = dangNhapDB.dangNhap(tk);
 
         if (user.length() <= 0 || password.length() <= 0) {
             result = EMPTY_ERROR;

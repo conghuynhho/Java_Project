@@ -1,7 +1,7 @@
 package View;
 
-import Process.PhanQuyenBUS;
-import Process.TaiKhoanBUS;
+import Process.PhanQuyenProcess;
+import Process.TaiKhoanProcess;
 import Model.PhanQuyen;
 import Utils.MyDialog;
 import java.awt.Image;
@@ -24,14 +24,14 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
 
         loadDataCmbQuyen();
     }
-    private PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
-    private TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
+    private PhanQuyenProcess phanQuyenProcess = new PhanQuyenProcess();
+    private TaiKhoanProcess taiKhoanProcess = new TaiKhoanProcess();
 
     private void loadDataCmbQuyen() {
         txtMatKhau_MaNV.setText(maNV);
         txtQuyen_MaNV.setText(maNV);
 
-        String tenDangNhap = taiKhoanBUS.getTenDangNhapTheoMa(maNV);
+        String tenDangNhap = taiKhoanProcess.getTenDangNhapTheoMa(maNV);
         if (tenDangNhap.equals("")) {
             new MyDialog("Nhân viên này chưa có tài khoản!", MyDialog.ERROR_DIALOG);
             btnCapMatKhau.setEnabled(false);
@@ -40,13 +40,13 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
         txtMatKhau_TenDangNhap.setText(tenDangNhap);
 
         cmbQuyen.removeAllItems();
-        phanQuyenBUS.docDanhSachQuyen();
-        ArrayList<PhanQuyen> dsq = phanQuyenBUS.getListQuyen();
+        phanQuyenProcess.docDanhSachQuyen();
+        ArrayList<PhanQuyen> dsq = phanQuyenProcess.getListQuyen();
         for (PhanQuyen pq : dsq) {
             cmbQuyen.addItem(pq.getQuyen());
         }
 
-        String quyen = taiKhoanBUS.getQuyenTheoMa(maNV);
+        String quyen = taiKhoanProcess.getQuyenTheoMa(maNV);
         for (int i = 0; i < cmbQuyen.getItemCount(); i++) {
             if (cmbQuyen.getItemAt(i).equals(quyen)) {
                 cmbQuyen.setSelectedIndex(i);
@@ -233,11 +233,11 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCapMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapMatKhauActionPerformed
-        taiKhoanBUS.datLaiMatKhau(maNV, txtMatKhau_TenDangNhap.getText());
+        taiKhoanProcess.datLaiMatKhau(maNV, txtMatKhau_TenDangNhap.getText());
     }//GEN-LAST:event_btnCapMatKhauActionPerformed
 
     private void btnLuuQuyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuQuyenActionPerformed
-        taiKhoanBUS.datLaiQuyen(maNV, cmbQuyen.getSelectedItem() + "");
+        taiKhoanProcess.datLaiQuyen(maNV, cmbQuyen.getSelectedItem() + "");
     }//GEN-LAST:event_btnLuuQuyenActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,6 +5,7 @@
  */
 package Database;
 
+import ConnectDB.MyConnect;
 import Model.CTHoaDon;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author User
  */
-public class CTHoaDonDAO {
+public class CTHoaDonDB {
 
     public ArrayList<CTHoaDon> getListCTHoaDon() {
         ArrayList<CTHoaDon> dscthd = new ArrayList<>();

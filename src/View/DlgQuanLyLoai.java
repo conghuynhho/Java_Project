@@ -1,6 +1,6 @@
 package View;
 
-import Process.LoaiBUS;
+import Process.LoaiProcess;
 import Model.LoaiSP;
 import Utils.MyDialog;
 import Utils.MyTable;
@@ -22,11 +22,11 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
     }
 
-    LoaiBUS loaiBUS = new LoaiBUS();
+    LoaiProcess loaiProcess = new LoaiProcess();
 
     private void loadDataLenTblLoai() {
         dtmLoai.setRowCount(0);
-        ArrayList<LoaiSP> dsl = loaiBUS.getDanhSachLoai();
+        ArrayList<LoaiSP> dsl = loaiProcess.getDanhSachLoai();
         if (dsl != null) {
             for (LoaiSP loai : dsl) {
                 Vector vec = new Vector();
@@ -185,7 +185,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if (loaiBUS.themLoai(dtmLoai.getRowCount(), txtTenLoai.getText())) {
+        if (loaiProcess.themLoai(dtmLoai.getRowCount(), txtTenLoai.getText())) {
             loadDataLenTblLoai();
         }
     }//GEN-LAST:event_btnThemActionPerformed
@@ -194,7 +194,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
         if (dlg.OK_OPTION == dlg.getAction()) {
             String ma = txtMaLoai.getText();
-            if (loaiBUS.xoaLoai(ma)) {
+            if (loaiProcess.xoaLoai(ma)) {
                 loadDataLenTblLoai();
             }
         }
@@ -203,7 +203,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         String ma = txtMaLoai.getText();
         String ten = txtTenLoai.getText();
-        if (loaiBUS.suaLoai(ma, ten)) {
+        if (loaiProcess.suaLoai(ma, ten)) {
             loadDataLenTblLoai();
         }
     }//GEN-LAST:event_btnSuaActionPerformed

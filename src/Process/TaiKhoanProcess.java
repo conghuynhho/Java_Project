@@ -1,25 +1,25 @@
 package Process;
 
-import Database.TaiKhoanDAO;
+import Database.TaiKhoanDB;
 import Utils.MyDialog;
 
-public class TaiKhoanBUS {
+public class TaiKhoanProcess {
 
-    private TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+    private TaiKhoanDB taiKhoanDB = new TaiKhoanDB();
 
     public String getTenDangNhapTheoMa(String ma) {
         int maNV = Integer.parseInt(ma);
-        return taiKhoanDAO.getTenDangNhapTheoMa(maNV);
+        return taiKhoanDB.getTenDangNhapTheoMa(maNV);
     }
 
     public String getQuyenTheoMa(String ma) {
         int maNV = Integer.parseInt(ma);
-        return taiKhoanDAO.getQuyenTheoMa(maNV);
+        return taiKhoanDB.getQuyenTheoMa(maNV);
     }
 
     public void datLaiMatKhau(String ma, String tenDangNhap) {
         int maNV = Integer.parseInt(ma);
-        boolean flag = taiKhoanDAO.datLaiMatKhau(maNV, tenDangNhap);
+        boolean flag = taiKhoanDB.datLaiMatKhau(maNV, tenDangNhap);
         if (flag) {
             new MyDialog("Đặt lại thành công! Mật khẩu mới là: " + tenDangNhap, MyDialog.SUCCESS_DIALOG);
         } else {
@@ -29,7 +29,7 @@ public class TaiKhoanBUS {
 
     public void datLaiQuyen(String ma, String quyen) {
         int maNV = Integer.parseInt(ma);
-        boolean flag = taiKhoanDAO.datLaiQuyen(maNV, quyen);
+        boolean flag = taiKhoanDB.datLaiQuyen(maNV, quyen);
         if (flag) {
             new MyDialog("Đặt lại thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -38,7 +38,7 @@ public class TaiKhoanBUS {
     }
 
     public boolean kiemTraTrungTenDangNhap(String tenDangNhap) {
-        return taiKhoanDAO.kiemTraTrungTenDangNhap(tenDangNhap);
+        return taiKhoanDB.kiemTraTrungTenDangNhap(tenDangNhap);
     }
 
     public boolean themTaiKhoan(String ma, String tenDangNhap, String quyen) {
@@ -55,7 +55,7 @@ public class TaiKhoanBUS {
             }
             return false;
         }
-        boolean flag = taiKhoanDAO.themTaiKhoan(maNV, tenDangNhap, quyen);
+        boolean flag = taiKhoanDB.themTaiKhoan(maNV, tenDangNhap, quyen);
         if (flag) {
             new MyDialog("Cấp tài khoản thành công! Mật khẩu là " + tenDangNhap, MyDialog.SUCCESS_DIALOG);
         } else {
@@ -66,7 +66,7 @@ public class TaiKhoanBUS {
 
     public void khoaTaiKhoan(String ma) {
         int maNV = Integer.parseInt(ma);
-        boolean flag = taiKhoanDAO.khoaTaiKhoan(maNV);
+        boolean flag = taiKhoanDB.khoaTaiKhoan(maNV);
         if (flag) {
             new MyDialog("Khoá tài khoản thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -76,7 +76,7 @@ public class TaiKhoanBUS {
 
     public void moKhoaTaiKhoan(String ma) {
         int maNV = Integer.parseInt(ma);
-        boolean flag = taiKhoanDAO.moKhoaTaiKhoan(maNV);
+        boolean flag = taiKhoanDB.moKhoaTaiKhoan(maNV);
         if (flag) {
             new MyDialog("Mở khoá tài khoản thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -89,7 +89,7 @@ public class TaiKhoanBUS {
             new MyDialog("Mật khẩu mới không khớp!", MyDialog.ERROR_DIALOG);
             return false;
         }
-        boolean flag = taiKhoanDAO.doiMatKhau(matKhauCu, matKhauMoi);
+        boolean flag = taiKhoanDB.doiMatKhau(matKhauCu, matKhauMoi);
         if (flag) {
             new MyDialog("Đổi thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -100,7 +100,7 @@ public class TaiKhoanBUS {
     
     public int getTrangThai(String maNV) {
         int ma = Integer.parseInt(maNV);
-        return taiKhoanDAO.getTrangThai(ma);
+        return taiKhoanDB.getTrangThai(ma);
     }
 
 }

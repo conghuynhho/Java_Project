@@ -1,11 +1,12 @@
 package Database;
 
+import ConnectDB.MyConnect;
 import Model.HoaDon;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class HoaDonDAO {
+public class HoaDonDB {
     public ArrayList<HoaDon> getListHoaDon() {
         ArrayList<HoaDon> dshd = new ArrayList<>();
         try {

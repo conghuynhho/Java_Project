@@ -1,20 +1,20 @@
 package Process;
 
-import Database.CTPhieuNhapDAO;
+import Database.CTPhieuNhapDB;
 import Model.CTPhieuNhap;
 import java.util.ArrayList;
 
-public class CTPhieuNhapBUS {
+public class CTPhieuNhapProcess {
 
     private ArrayList<CTPhieuNhap> listPhieuNhap = null;
-    private CTPhieuNhapDAO ctPhieuNhapDAO = new CTPhieuNhapDAO();
+    private CTPhieuNhapDB ctPhieuNhapDB = new CTPhieuNhapDB();
 
-    public CTPhieuNhapBUS() {
+    public CTPhieuNhapProcess() {
         docDanhSach();
     }
 
     public void docDanhSach() {
-        this.listPhieuNhap = ctPhieuNhapDAO.getListCTPhieuNhap();
+        this.listPhieuNhap = ctPhieuNhapDB.getListCTPhieuNhap();
     }
 
     public ArrayList<CTPhieuNhap> getListPhieuNhap() {
@@ -38,6 +38,6 @@ public class CTPhieuNhapBUS {
     }
 
     public boolean luuCTPhieuNhap(CTPhieuNhap ctpn) {
-        return ctPhieuNhapDAO.addCTPhieuNhap(ctpn);
+        return ctPhieuNhapDB.addCTPhieuNhap(ctpn);
     }
 }

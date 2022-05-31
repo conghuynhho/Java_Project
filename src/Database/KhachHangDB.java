@@ -5,6 +5,7 @@
  */
 package Database;
 
+import ConnectDB.MyConnect;
 import Model.KhachHang;
 
 import java.sql.PreparedStatement;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 /**
  * @author User
  */
-public class KhachHangDAO {
+public class KhachHangDB {
 
     public ArrayList<KhachHang> getListKhachHang() {
         try {

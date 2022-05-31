@@ -1,21 +1,21 @@
 package Process;
 
-import Database.LoaiDAO;
+import Database.LoaiDB;
 import Model.LoaiSP;
 import Utils.MyDialog;
 import java.util.ArrayList;
 
-public class LoaiBUS {
+public class LoaiProcess {
 
-    private LoaiDAO loaiDAO = new LoaiDAO();
+    private LoaiDB loaiDB = new LoaiDB();
     private ArrayList<LoaiSP> listLoai = null;
     
-    public LoaiBUS() {
+    public LoaiProcess() {
         docDanhSachLoai();
     }
 
     public void docDanhSachLoai() {
-        this.listLoai = loaiDAO.getDanhSachLoai();
+        this.listLoai = loaiDB.getDanhSachLoai();
     }
 
     public ArrayList<LoaiSP> getDanhSachLoai() {
@@ -41,7 +41,7 @@ public class LoaiBUS {
         }
         maLoai += 1;
         LoaiSP loai = new LoaiSP(maLoai, tenLoai);
-        if (loaiDAO.themLoai(loai)) {
+        if (loaiDB.themLoai(loai)) {
             new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
             return true;
         } else {
@@ -56,7 +56,7 @@ public class LoaiBUS {
             return false;
         }
         int maLoai = Integer.parseInt(ma);
-        if (loaiDAO.xoaLoai(maLoai)) {
+        if (loaiDB.xoaLoai(maLoai)) {
             new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
             return true;
         } else {
@@ -71,7 +71,7 @@ public class LoaiBUS {
             return false;
         }
         int maLoai = Integer.parseInt(ma);
-        if (loaiDAO.suaLoai(maLoai, ten)) {
+        if (loaiDB.suaLoai(maLoai, ten)) {
             new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
             return true;
         } else {

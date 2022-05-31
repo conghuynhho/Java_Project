@@ -1,6 +1,6 @@
 package View;
 
-import Process.GiamGiaBUS;
+import Process.GiamGiaProcess;
 import Model.GiamGia;
 import Utils.MyDialog;
 import Utils.MyTable;
@@ -31,7 +31,7 @@ import javax.swing.table.TableColumnModel;
 public class DlgTimMaGiam extends JDialog {
 
     public static GiamGia maGiamTimDuoc = null;
-    private GiamGiaBUS giamGiaBUS = new GiamGiaBUS();
+    private GiamGiaProcess giamGiaProcess = new GiamGiaProcess();
     private int tongTien = 0;
 
     public DlgTimMaGiam(int tongTien) {
@@ -174,8 +174,8 @@ public class DlgTimMaGiam extends JDialog {
 
     private void loadDataLenTable() {
         dtmMaGiam.setRowCount(0);
-        giamGiaBUS.docDanhSach();
-        ArrayList<GiamGia> dsg = giamGiaBUS.getDanhSachGiamGia();
+        giamGiaProcess.docDanhSach();
+        ArrayList<GiamGia> dsg = giamGiaProcess.getDanhSachGiamGia();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         DecimalFormat dcf = new DecimalFormat(">###,###");
         for (GiamGia gg : dsg) {

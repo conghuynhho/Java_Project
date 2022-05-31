@@ -1,5 +1,6 @@
 package Database;
 
+import ConnectDB.MyConnect;
 import Model.NhaCungCap;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class NhaCungCapDAO {
+public class NhaCungCapDB {
 
     public ArrayList<NhaCungCap> getListNhaCungCap() {
         try {

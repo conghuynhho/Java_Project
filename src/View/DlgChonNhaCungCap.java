@@ -1,6 +1,6 @@
 package View;
 
-import Process.NhaCungCapBUS;
+import Process.NhaCungCapProcess;
 import Model.NhaCungCap;
 import Utils.MyDialog;
 import Utils.MyTable;
@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 public class DlgChonNhaCungCap extends javax.swing.JDialog {
 
     private NhaCungCap nhaCungCapChon = null;
-    private NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
+    private NhaCungCapProcess nhaCungCapProcess = new NhaCungCapProcess();
 
     public DlgChonNhaCungCap() {
         initComponents();
@@ -45,8 +45,8 @@ public class DlgChonNhaCungCap extends javax.swing.JDialog {
 
     private void loadTableNhaCungCap() {
         dtmNhaCungCap.setRowCount(0);
-        nhaCungCapBUS.docDanhSach();
-        ArrayList<NhaCungCap> dsncc = nhaCungCapBUS.getListNhaCungCap();
+        nhaCungCapProcess.docDanhSach();
+        ArrayList<NhaCungCap> dsncc = nhaCungCapProcess.getListNhaCungCap();
 
         if (dsncc != null) {
             for (NhaCungCap ncc : dsncc) {

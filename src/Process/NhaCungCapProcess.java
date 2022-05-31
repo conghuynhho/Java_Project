@@ -1,22 +1,22 @@
 package Process;
 
-import Database.NhaCungCapDAO;
+import Database.NhaCungCapDB;
 import Model.NhaCungCap;
 import Utils.MyDialog;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-public class NhaCungCapBUS {
+public class NhaCungCapProcess {
 
-    private NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO();
+    private NhaCungCapDB nhaCungCapDB = new NhaCungCapDB();
     private ArrayList<NhaCungCap> listNhaCungCap = null;
 
-    public NhaCungCapBUS() {
+    public NhaCungCapProcess() {
         docDanhSach();
     }
 
     public void docDanhSach() {
-        this.listNhaCungCap = nhaCungCapDAO.getListNhaCungCap();
+        this.listNhaCungCap = nhaCungCapDB.getListNhaCungCap();
     }
 
     public ArrayList<NhaCungCap> getListNhaCungCap() {
@@ -45,7 +45,7 @@ public class NhaCungCapBUS {
         ncc.setTenNCC(tenNCC);
         ncc.setDiaChi(diaChi);
         ncc.setDienThoai(dienThoai);
-        boolean flag = nhaCungCapDAO.addNCC(ncc);
+        boolean flag = nhaCungCapDB.addNCC(ncc);
         if (flag) {
             new MyDialog("Thêm mới thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -77,7 +77,7 @@ public class NhaCungCapBUS {
         ncc.setDiaChi(diaChi);
         ncc.setDienThoai(dienThoai);
         
-        boolean flag = nhaCungCapDAO.updateNCC(ncc);
+        boolean flag = nhaCungCapDB.updateNCC(ncc);
 
         if (flag) {
             new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);

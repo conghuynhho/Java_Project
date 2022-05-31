@@ -1,6 +1,6 @@
 package View;
 
-import Process.TaiKhoanBUS;
+import Process.TaiKhoanProcess;
 
 public class DlgDoiMatKhau extends javax.swing.JDialog {
 
@@ -141,7 +141,7 @@ public class DlgDoiMatKhau extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
-        TaiKhoanBUS tkBUS = new TaiKhoanBUS();
+        TaiKhoanProcess tkBUS = new TaiKhoanProcess();
         boolean flag = tkBUS.doiMatKhau(txtMatKhauCu.getText(), txtMatKhauMoi.getText(), txtNhapLaiMatKhau.getText());
         if (flag) {
             btnHuy.doClick();

@@ -1,17 +1,17 @@
 package Process;
 
-import Database.CTHoaDonDAO;
+import Database.CTHoaDonDB;
 import Model.CTHoaDon;
 
 import java.util.ArrayList;
 
-public class CTHoaDonBUS {
+public class CTHoaDonProcess {
 
     private ArrayList<CTHoaDon> listCTHoaDon;
-    private CTHoaDonDAO ctHDDAO = new CTHoaDonDAO();
-    private HoaDonBUS hdBUS = new HoaDonBUS();
+    private CTHoaDonDB ctHDDAO = new CTHoaDonDB();
+    private HoaDonProcess hdBUS = new HoaDonProcess();
 
-    public CTHoaDonBUS() {
+    public CTHoaDonProcess() {
         docListCTHoaDon();
     }
 

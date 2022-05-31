@@ -3,7 +3,7 @@ package View;
 import Main.Main;
 import Utils.ImagePanel;
 import Utils.MyDialog;
-import Process.DangNhapBUS;
+import Process.DangNhapProcess;
 import Model.TaiKhoan;
 
 import javax.swing.*;
@@ -25,8 +25,8 @@ public class DangNhapGUI extends JFrame {
     }
 
     private void xuLyTaiKhoanDaGhiNho() {
-        DangNhapBUS dangNhapBUS = new DangNhapBUS();
-        String line = dangNhapBUS.getTaiKhoanGhiNho();
+        DangNhapProcess dangNhapProcess = new DangNhapProcess();
+        String line = dangNhapProcess.getTaiKhoanGhiNho();
         try {
             String[] arr = line.split(" | ");
             ckbRemember.setSelected(true);
@@ -221,8 +221,8 @@ public class DangNhapGUI extends JFrame {
     }
 
     private void xuLyDangNhap() {
-        DangNhapBUS dangNhapBUS = new DangNhapBUS();
-        TaiKhoan tk = dangNhapBUS.getTaiKhoanDangNhap(txtUser.getText(),
+        DangNhapProcess dangNhapProcess = new DangNhapProcess();
+        TaiKhoan tk = dangNhapProcess.getTaiKhoanDangNhap(txtUser.getText(),
                 txtPassword.getText(), ckbRemember.isSelected());
         if (tk != null) {
             this.dispose();

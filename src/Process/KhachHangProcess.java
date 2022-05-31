@@ -1,18 +1,18 @@
 package Process;
 
-import Database.KhachHangDAO;
+import Database.KhachHangDB;
 import Model.KhachHang;
 import Utils.MyDialog;
 
 import java.util.ArrayList;
 
-public class KhachHangBUS {
+public class KhachHangProcess {
 
     private ArrayList<KhachHang> listKhachHang = null;
-    private KhachHangDAO khachHangDAO = new KhachHangDAO();
+    private KhachHangDB khachHangDB = new KhachHangDB();
 
     public void docDanhSach() {
-        this.listKhachHang = khachHangDAO.getListKhachHang();
+        this.listKhachHang = khachHangDB.getListKhachHang();
     }
 
     public ArrayList<KhachHang> getListKhachHang() {
@@ -70,7 +70,7 @@ public class KhachHangBUS {
         kh.setTen(ten);
         kh.setGioiTinh(gioiTinh);
         kh.setTongChiTieu(0);
-        boolean flag = khachHangDAO.addKhachHang(kh);
+        boolean flag = khachHangDB.addKhachHang(kh);
         if (flag) {
             new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -92,7 +92,7 @@ public class KhachHangBUS {
         kh.setHo(ho);
         kh.setTen(ten);
         kh.setGioiTinh(gioiTinh);
-        boolean flag = khachHangDAO.updateKhachHang(Integer.parseInt(ma), kh);
+        boolean flag = khachHangDB.updateKhachHang(Integer.parseInt(ma), kh);
         if (flag) {
             new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -108,7 +108,7 @@ public class KhachHangBUS {
             MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
             if(dlg.getAction() == MyDialog.CANCEL_OPTION)
                 return false;
-            flag = khachHangDAO.deleteKhachHang(maKH);
+            flag = khachHangDB.deleteKhachHang(maKH);
         } catch (Exception e) {
             new MyDialog("Chưa chọn khách hàng!", MyDialog.ERROR_DIALOG);
         }

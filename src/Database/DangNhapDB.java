@@ -1,12 +1,13 @@
 package Database;
 
+import ConnectDB.MyConnect;
 import Model.TaiKhoan;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DangNhapDAO {
+public class DangNhapDB {
 
     public TaiKhoan dangNhap(TaiKhoan tk) {
         try {

@@ -1,6 +1,6 @@
 package View;
 
-import Process.ThongKeBUS;
+import Process.ThongKeProcess;
 import Model.ThongKe;
 import Utils.TransparentPanel;
 import org.jfree.chart.ChartFactory;
@@ -29,7 +29,7 @@ public class PnQuanLyThongKeGUI extends JPanel {
         addEvents();
     }
 
-    ThongKeBUS thongKeBUS = new ThongKeBUS();
+    ThongKeProcess thongKeProcess = new ThongKeProcess();
     final Color colorPanel = new Color(56, 56, 56);
     JLabel lblThongKeThucDon, lblThongKeKhachHang, lblThongKeNhanVien, lblThongKeDoanhThu;
     JLabel lblDoanhThuQuy1, lblDoanhThuQuy2, lblDoanhThuQuy3, lblDoanhThuQuy4, lblTongDoanhThu;
@@ -302,7 +302,7 @@ public class PnQuanLyThongKeGUI extends JPanel {
     private CategoryDataset createDataset() {
         final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (int i = 1; i <= 12; i++) {
-            double value = thongKeBUS.getDoanhThuThang(i, Calendar.getInstance().get(Calendar.YEAR));
+            double value = thongKeProcess.getDoanhThuThang(i, Calendar.getInstance().get(Calendar.YEAR));
             dataset.addValue(value, "Doanh thu", i + "");
         }
         return dataset;
@@ -311,7 +311,7 @@ public class PnQuanLyThongKeGUI extends JPanel {
     private DecimalFormat dcf = new DecimalFormat("###,###");
 
     private void hienThiThongKe() {
-        ThongKe thongKe = thongKeBUS.thongKe(Integer.parseInt(cmbNam.getSelectedItem() + ""));
+        ThongKe thongKe = thongKeProcess.thongKe(Integer.parseInt(cmbNam.getSelectedItem() + ""));
         lblThongKeThucDon.setText(dcf.format(thongKe.getSoLuongSP()));
         lblThongKeKhachHang.setText(dcf.format(thongKe.getSoLuongKH()));
         lblThongKeNhanVien.setText(dcf.format(thongKe.getSoLuongNV()));

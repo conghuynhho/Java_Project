@@ -1,6 +1,6 @@
 package View;
 
-import Process.KhachHangBUS;
+import Process.KhachHangProcess;
 
 public class DlgThemKhachHang extends javax.swing.JDialog {
 
@@ -118,8 +118,8 @@ public class DlgThemKhachHang extends javax.swing.JDialog {
     public boolean checkThemKhach = false;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         checkThemKhach = false;
-        KhachHangBUS khachHangBUS = new KhachHangBUS();
-        boolean flag = khachHangBUS.themKhachHang(txtHo.getText(), txtTen.getText(), cmbGioiTinh.getSelectedItem() + "");
+        KhachHangProcess khachHangProcess = new KhachHangProcess();
+        boolean flag = khachHangProcess.themKhachHang(txtHo.getText(), txtTen.getText(), cmbGioiTinh.getSelectedItem() + "");
         checkThemKhach = flag;
         if (flag) {
             this.dispose();

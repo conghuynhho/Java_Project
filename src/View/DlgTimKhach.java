@@ -1,6 +1,6 @@
 package View;
 
-import Process.KhachHangBUS;
+import Process.KhachHangProcess;
 import Model.KhachHang;
 import Utils.MyTable;
 
@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class DlgTimKhach extends JDialog {
 
-    private KhachHangBUS khachHangBUS = new KhachHangBUS();
+    private KhachHangProcess khachHangProcess = new KhachHangProcess();
     public static KhachHang khachHangTimDuoc = null;
 
     public DlgTimKhach() {
@@ -124,14 +124,14 @@ public class DlgTimKhach extends JDialog {
         DlgThemKhachHang dlg = new DlgThemKhachHang();
         dlg.setVisible(true);
         if (dlg.checkThemKhach) {
-            khachHangBUS.docDanhSach();
+            khachHangProcess.docDanhSach();
             loadDataLenTable();
         }
     }
 
     private void loadDataLenTable() {
         dtmKhachHang.setRowCount(0);
-        ArrayList<KhachHang> dskh = khachHangBUS.getListKhachHang();
+        ArrayList<KhachHang> dskh = khachHangProcess.getListKhachHang();
         if (dskh != null) {
             for (KhachHang kh : dskh) {
                 Vector vec = new Vector();
@@ -147,7 +147,7 @@ public class DlgTimKhach extends JDialog {
 
     private void loadDataLenTable(String tuKhoa) {
         dtmKhachHang.setRowCount(0);
-        ArrayList<KhachHang> dskh = khachHangBUS.timKiemKhachHang(tuKhoa);
+        ArrayList<KhachHang> dskh = khachHangProcess.timKiemKhachHang(tuKhoa);
         for (KhachHang kh : dskh) {
             Vector vec = new Vector();
             vec.add(kh.getMaKH());

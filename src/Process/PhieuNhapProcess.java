@@ -1,23 +1,23 @@
 package Process;
 
 import Utils.MyDialog;
-import Database.PhieuNhapDAO;
+import Database.PhieuNhapDB;
 import Model.PhieuNhap;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PhieuNhapBUS {
+public class PhieuNhapProcess {
 
-    private PhieuNhapDAO phieuNhapDAO = new PhieuNhapDAO();
+    private PhieuNhapDB phieuNhapDB = new PhieuNhapDB();
     private ArrayList<PhieuNhap> listPhieuNhap = null;
 
-    public PhieuNhapBUS() {
+    public PhieuNhapProcess() {
         docDanhSach();
     }
 
     public void docDanhSach() {
-        this.listPhieuNhap = phieuNhapDAO.getListPhieuNhap();
+        this.listPhieuNhap = phieuNhapDB.getListPhieuNhap();
     }
 
     public ArrayList<PhieuNhap> getListPhieuNhap() {
@@ -39,11 +39,11 @@ public class PhieuNhapBUS {
         pn.setMaNV(maNV);
         pn.setTongTien(tongTien);
 
-        return phieuNhapDAO.themPhieuNhap(pn);
+        return phieuNhapDB.themPhieuNhap(pn);
     }
 
     public int getLastID() {
-        return phieuNhapDAO.getLastID();
+        return phieuNhapDB.getLastID();
     }
 
     public PhieuNhap timPhieuNhap(String maPN) {

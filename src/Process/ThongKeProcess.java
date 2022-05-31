@@ -5,7 +5,7 @@
  */
 package Process;
 
-import Database.ThongKeDAO;
+import Database.ThongKeDB;
 import Model.ThongKe;
 
 import java.util.ArrayList;
@@ -13,16 +13,16 @@ import java.util.ArrayList;
 /**
  * @author User
  */
-public class ThongKeBUS {
+public class ThongKeProcess {
 
-    public ThongKeDAO thongKeDAO = new ThongKeDAO();
+    public ThongKeDB thongKeDB = new ThongKeDB();
     private ArrayList<Double> doanhThuThang;
 
     public ThongKe thongKe(int nam) {
-        return thongKeDAO.getThongKe(nam);
+        return thongKeDB.getThongKe(nam);
     }
 
     public double getDoanhThuThang(int thang, int nam) {
-        return thongKeDAO.getDoanhThuThang(thang, nam);
+        return thongKeDB.getDoanhThuThang(thang, nam);
     }
 }

@@ -1,7 +1,7 @@
 package View;
 
-import Process.PhanQuyenBUS;
-import Process.TaiKhoanBUS;
+import Process.PhanQuyenProcess;
+import Process.TaiKhoanProcess;
 import Model.PhanQuyen;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -149,11 +149,11 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
-    private PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
+    private TaiKhoanProcess taiKhoanProcess = new TaiKhoanProcess();
+    private PhanQuyenProcess phanQuyenProcess = new PhanQuyenProcess();
 
     private void btnTaoTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaoTaiKhoanActionPerformed
-        taiKhoanBUS.themTaiKhoan(txtMaNV.getText(),
+        taiKhoanProcess.themTaiKhoan(txtMaNV.getText(),
                 txtTenDangNhap.getText(),
                 (String) cmbQuyen.getSelectedItem());
     }//GEN-LAST:event_btnTaoTaiKhoanActionPerformed
@@ -164,8 +164,8 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
 
     private void loadDataCmbQuyen() {
         cmbQuyen.removeAllItems();
-        phanQuyenBUS.docDanhSachQuyen();
-        ArrayList<PhanQuyen> dsq = phanQuyenBUS.getListQuyen();
+        phanQuyenProcess.docDanhSachQuyen();
+        ArrayList<PhanQuyen> dsq = phanQuyenProcess.getListQuyen();
         for (PhanQuyen pq : dsq) {
             cmbQuyen.addItem(pq.getQuyen());
         }

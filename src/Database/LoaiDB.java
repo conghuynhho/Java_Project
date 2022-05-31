@@ -1,5 +1,6 @@
 package Database;
 
+import ConnectDB.MyConnect;
 import Model.LoaiSP;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoaiDAO {
+public class LoaiDB {
 
     public ArrayList<LoaiSP> getDanhSachLoai() {
         try {
@@ -38,7 +39,7 @@ public class LoaiDAO {
             int x = st.executeUpdate(sql);
             return x > 0 ? true : false;
         } catch (SQLException ex) {
-            Logger.getLogger(LoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoaiDB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return false;

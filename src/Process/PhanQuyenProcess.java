@@ -1,23 +1,23 @@
 package Process;
 
-import Database.PhanQuyenDAO;
+import Database.PhanQuyenDB;
 import Model.PhanQuyen;
 import Utils.MyDialog;
 
 import java.util.ArrayList;
 
-public class PhanQuyenBUS {
+public class PhanQuyenProcess {
 
     public static PhanQuyen quyenTK = null;
-    private PhanQuyenDAO phanQuyenDAO = new PhanQuyenDAO();
+    private PhanQuyenDB phanQuyenDB = new PhanQuyenDB();
     private ArrayList<PhanQuyen> listPhanQuyen = null;
 
     public void docDanhSachQuyen() {
-        this.listPhanQuyen = phanQuyenDAO.getListQuyen();
+        this.listPhanQuyen = phanQuyenDB.getListQuyen();
     }
 
     public void kiemTraQuyen(String quyen) {
-        quyenTK = phanQuyenDAO.getQuyen(quyen);
+        quyenTK = phanQuyenDB.getQuyen(quyen);
     }
 
     public ArrayList<PhanQuyen> getListQuyen() {
@@ -28,7 +28,7 @@ public class PhanQuyenBUS {
 
     public boolean suaQuyen(String tenQuyen, int nhapHang, int sanPham, int nhanVien, int khachHang, int thongKe) {
         PhanQuyen phanQuyen = new PhanQuyen(tenQuyen, nhapHang, sanPham, nhanVien, khachHang, thongKe);
-        boolean flag = phanQuyenDAO.suaQuyen(phanQuyen);
+        boolean flag = phanQuyenDB.suaQuyen(phanQuyen);
         if (flag) {
             new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -48,7 +48,7 @@ public class PhanQuyenBUS {
         }
 
         PhanQuyen phanQuyen = new PhanQuyen(tenQuyen, 0, 0, 0, 0, 0);
-        boolean flag = phanQuyenDAO.themQuyen(phanQuyen);
+        boolean flag = phanQuyenDB.themQuyen(phanQuyen);
         if (flag) {
             new MyDialog("Thêm thành công! Hãy hiệu chỉnh quyền", MyDialog.SUCCESS_DIALOG);
         } else {
@@ -67,7 +67,7 @@ public class PhanQuyenBUS {
     }
 
     public boolean xoaQuyen(String tenQuyen) {
-        boolean flag = phanQuyenDAO.xoaQuyen(tenQuyen);
+        boolean flag = phanQuyenDB.xoaQuyen(tenQuyen);
         if (flag) {
             new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
         } else {

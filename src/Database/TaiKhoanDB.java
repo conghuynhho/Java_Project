@@ -1,12 +1,13 @@
 package Database;
 
-import Process.DangNhapBUS;
+import ConnectDB.MyConnect;
+import Process.DangNhapProcess;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class TaiKhoanDAO {
+public class TaiKhoanDB {
 
     public boolean themTaiKhoan(int maNV, String tenDangNhap, String quyen) {
         try {
@@ -112,7 +113,7 @@ public class TaiKhoanDAO {
             String sql = "UPDATE TaiKhoan SET MatKhau=? WHERE MaNV=? AND MatKhau=?";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setString(1, matKhauMoi);
-            pre.setInt(2, DangNhapBUS.taiKhoanLogin.getMaNhanVien());
+            pre.setInt(2, DangNhapProcess.taiKhoanLogin.getMaNhanVien());
             pre.setString(3, matKhauCu);
             return pre.executeUpdate() > 0;
         } catch (Exception e) {

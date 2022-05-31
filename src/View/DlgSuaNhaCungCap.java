@@ -1,6 +1,6 @@
 package View;
 
-import Process.NhaCungCapBUS;
+import Process.NhaCungCapProcess;
 import Model.NhaCungCap;
 
 public class DlgSuaNhaCungCap extends javax.swing.JDialog {
@@ -164,8 +164,8 @@ public class DlgSuaNhaCungCap extends javax.swing.JDialog {
     }//GEN-LAST:event_btnHuyActionPerformed
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
-        checkSuaNCC = nhaCungCapBUS.suaNhaCungCap(
+        NhaCungCapProcess nhaCungCapProcess = new NhaCungCapProcess();
+        checkSuaNCC = nhaCungCapProcess.suaNhaCungCap(
                 txtMaNCC.getText(),
                 txtTenNCC.getText(),
                 txtDiaChiNCC.getText(),

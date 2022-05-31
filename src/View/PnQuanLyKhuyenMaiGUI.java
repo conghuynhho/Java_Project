@@ -1,6 +1,6 @@
 package View;
 
-import Process.GiamGiaBUS;
+import Process.GiamGiaProcess;
 import Model.GiamGia;
 import Main.Main;
 import Utils.MyTable;
@@ -30,7 +30,7 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
         addEvents();
     }
 
-    private GiamGiaBUS giamGiaBUS = new GiamGiaBUS();
+    private GiamGiaProcess giamGiaProcess = new GiamGiaProcess();
     final Color colorPanel = new Color(247, 247, 247);
 
     JButton btnReset, btnThem, btnSua;
@@ -239,8 +239,8 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
 
     private void loadDataTblKhuyenMai() {
         dtmKhuyenMai.setRowCount(0);
-        giamGiaBUS.docDanhSach();
-        ArrayList<GiamGia> dsg = giamGiaBUS.getDanhSachGiamGia();
+        giamGiaProcess.docDanhSach();
+        ArrayList<GiamGia> dsg = giamGiaProcess.getDanhSachGiamGia();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         DecimalFormat dcf = new DecimalFormat(">###,###");
         for (GiamGia gg : dsg) {
@@ -293,13 +293,13 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
     }
 
     private void xuLyThemKhuyenMai() {
-        boolean flag = giamGiaBUS.themMaGiam(txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), dateBD.getDate(), dateKT.getDate());
+        boolean flag = giamGiaProcess.themMaGiam(txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), dateBD.getDate(), dateKT.getDate());
         if (flag)
             loadDataTblKhuyenMai();
     }
 
     private void xuLySuaKhuyenMai() {
-        boolean flag = giamGiaBUS.suaMaGiam(txtMa.getText(), txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), dateBD.getDate(), dateKT.getDate());
+        boolean flag = giamGiaProcess.suaMaGiam(txtMa.getText(), txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), dateBD.getDate(), dateKT.getDate());
         if (flag)
             loadDataTblKhuyenMai();
     }

@@ -1,6 +1,6 @@
 package View;
 
-import Process.PhanQuyenBUS;
+import Process.PhanQuyenProcess;
 import Model.PhanQuyen;
 
 
@@ -162,7 +162,7 @@ public class MainQuanLyGUI extends JFrame {
         pnKhuyenMai.add(khuyenMaiPanel, BorderLayout.CENTER);
 
         //======XỬ LÝ PHÂN QUYỀN=======
-        PhanQuyen quyen = PhanQuyenBUS.quyenTK;
+        PhanQuyen quyen = PhanQuyenProcess.quyenTK;
 
         if (quyen.getNhapHang() == 1) {
             nhapHangPanel = new PnQuanLyNhapHangGUI();

@@ -1,6 +1,6 @@
 package Process;
 
-import Database.HoaDonDAO;
+import Database.HoaDonDB;
 import Model.HoaDon;
 import Utils.MyDialog;
 
@@ -8,13 +8,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class HoaDonBUS {
+public class HoaDonProcess {
 
     private ArrayList<HoaDon> listHoaDon;
-    private HoaDonDAO hoaDonDAO = new HoaDonDAO();
+    private HoaDonDB hoaDonDB = new HoaDonDB();
 
     public ArrayList<HoaDon> getListHoaDon() {
-        listHoaDon = hoaDonDAO.getListHoaDon();
+        listHoaDon = hoaDonDB.getListHoaDon();
         return listHoaDon;
     }
 
@@ -27,11 +27,11 @@ public class HoaDonBUS {
         hd.setGhiChu(ghiChu);
         hd.setTongTien(tongTien);
 
-        hoaDonDAO.addHoaDon(hd);
+        hoaDonDB.addHoaDon(hd);
     }
 
     public int getMaHoaDonMoiNhat() {
-        return hoaDonDAO.getMaHoaDonMoiNhat();
+        return hoaDonDB.getMaHoaDonMoiNhat();
     }
 
     public HoaDon getHoaDon(String maHD) {
@@ -68,7 +68,7 @@ public class HoaDonBUS {
             java.sql.Date dateMin = new java.sql.Date(minDate.getTime());
             java.sql.Date dateMax = new java.sql.Date(maxDate.getTime());
 
-            ArrayList<HoaDon> dshd = hoaDonDAO.getListHoaDon(dateMin, dateMax);
+            ArrayList<HoaDon> dshd = hoaDonDB.getListHoaDon(dateMin, dateMax);
             return dshd;
         } catch (Exception e) {
             new MyDialog("Hãy nhập khoảng ngày hợp lệ!", MyDialog.ERROR_DIALOG);

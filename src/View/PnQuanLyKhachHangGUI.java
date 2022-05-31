@@ -1,6 +1,6 @@
 package View;
 
-import Process.KhachHangBUS;
+import Process.KhachHangProcess;
 import Model.KhachHang;
 import Utils.MyTable;
 import Utils.TransparentPanel;
@@ -29,7 +29,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         addEvents();
     }
 
-    private KhachHangBUS khachHangBUS = new KhachHangBUS();
+    private KhachHangProcess khachHangProcess = new KhachHangProcess();
 
     final Color colorPanel = new Color(247, 247, 247);
     JButton btnReset;
@@ -311,8 +311,8 @@ public class PnQuanLyKhachHangGUI extends JPanel {
     }
 
     private void loadDataLenTableKhachHang() {
-        khachHangBUS.docDanhSach();
-        ArrayList<KhachHang> dskh = khachHangBUS.getListKhachHang();
+        khachHangProcess.docDanhSach();
+        ArrayList<KhachHang> dskh = khachHangProcess.getListKhachHang();
         loadDataLenTableKhachHang(dskh);
     }
 
@@ -343,29 +343,29 @@ public class PnQuanLyKhachHangGUI extends JPanel {
     }
 
     private void xuLyTimKiemTheoKhoang() {
-        ArrayList<KhachHang> dskh = khachHangBUS.timKiemKhachHang(txtMinchiTieu.getText(), txtMaxChiTieu.getText());
+        ArrayList<KhachHang> dskh = khachHangProcess.timKiemKhachHang(txtMinchiTieu.getText(), txtMaxChiTieu.getText());
         if (dskh == null)
             return;
         loadDataLenTableKhachHang(dskh);
     }
 
     private void xuLyLiveSearch() {
-        ArrayList<KhachHang> dskh = khachHangBUS.timKiemKhachHang(txtTukhoa.getText());
+        ArrayList<KhachHang> dskh = khachHangProcess.timKiemKhachHang(txtTukhoa.getText());
         loadDataLenTableKhachHang(dskh);
     }
 
     private void xuLyThemKhachHang() {
-        if (khachHangBUS.themKhachHang(txtHo.getText(), txtTen.getText(), cmbGioiTinh.getSelectedItem() + ""))
+        if (khachHangProcess.themKhachHang(txtHo.getText(), txtTen.getText(), cmbGioiTinh.getSelectedItem() + ""))
             btnReset.doClick();
     }
 
     private void xuLySuaKhachHang() {
-        if (khachHangBUS.suaKhachHang(txtMa.getText(), txtHo.getText(), txtTen.getText(), cmbGioiTinh.getSelectedItem() + ""))
+        if (khachHangProcess.suaKhachHang(txtMa.getText(), txtHo.getText(), txtTen.getText(), cmbGioiTinh.getSelectedItem() + ""))
             btnReset.doClick();
     }
 
     private void xuLyXoaKhachHang() {
-        if(khachHangBUS.xoaKhachHang(txtMa.getText()))
+        if(khachHangProcess.xoaKhachHang(txtMa.getText()))
             btnReset.doClick();
     }
 }

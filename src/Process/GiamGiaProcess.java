@@ -1,23 +1,23 @@
 package Process;
 
-import Database.GiamGiaDAO;
+import Database.GiamGiaDB;
 import Model.GiamGia;
 import Utils.MyDialog;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class GiamGiaBUS {
+public class GiamGiaProcess {
 
     private ArrayList<GiamGia> listGiamGia = null;
-    private GiamGiaDAO giamGiaDAO = new GiamGiaDAO();
+    private GiamGiaDB giamGiaDB = new GiamGiaDB();
 
-    public GiamGiaBUS() {
+    public GiamGiaProcess() {
         docDanhSach();
     }
 
     public void docDanhSach() {
-        this.listGiamGia = giamGiaDAO.getDanhSachMaGiam();
+        this.listGiamGia = giamGiaDB.getDanhSachMaGiam();
     }
 
     public ArrayList<GiamGia> getDanhSachGiamGia() {
@@ -50,7 +50,7 @@ public class GiamGiaBUS {
             gg.setNgayBD(ngayBD);
             gg.setNgayKT(ngayKT);
 
-            flag = giamGiaDAO.themMaGiam(gg);
+            flag = giamGiaDB.themMaGiam(gg);
         } catch (Exception e) {
             new MyDialog("Hãy nhập số nguyên hợp lệ!", MyDialog.ERROR_DIALOG);
             return false;
@@ -93,7 +93,7 @@ public class GiamGiaBUS {
             gg.setNgayBD(ngayBD);
             gg.setNgayKT(ngayKT);
 
-            flag = giamGiaDAO.suaMaGiam(gg);
+            flag = giamGiaDB.suaMaGiam(gg);
         } catch (Exception e) {
             new MyDialog("Hãy nhập số nguyên hợp lệ!", MyDialog.ERROR_DIALOG);
             return false;

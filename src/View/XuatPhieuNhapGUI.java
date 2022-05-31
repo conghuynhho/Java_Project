@@ -1,8 +1,8 @@
 package View;
 
-import Process.CTPhieuNhapBUS;
-import Process.PhieuNhapBUS;
-import Process.SanPhamBUS;
+import Process.CTPhieuNhapProcess;
+import Process.PhieuNhapProcess;
+import Process.SanPhamProcess;
 import Model.CTPhieuNhap;
 import Model.SanPham;
 import Utils.MyDialog;
@@ -112,8 +112,8 @@ public class XuatPhieuNhapGUI extends javax.swing.JDialog {
         btnXacNhan.setEnabled(false);
         btnInPhieu.setEnabled(true);
 
-        SanPhamBUS sanPhamBUS = new SanPhamBUS();
-        ArrayList<SanPham> dssp = sanPhamBUS.getListSanPham();
+        SanPhamProcess sanPhamProcess = new SanPhamProcess();
+        ArrayList<SanPham> dssp = sanPhamProcess.getListSanPham();
 
         txtChiTiet.setContentType("text/html");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -121,11 +121,11 @@ public class XuatPhieuNhapGUI extends javax.swing.JDialog {
         DecimalFormat dcf = new DecimalFormat("###,### VND");
 
         // Lưu Phiếu nhập trước để xíu lấy cái mã
-        PhieuNhapBUS phieuNhapBUS = new PhieuNhapBUS();
-        phieuNhapBUS.themPhieuNhap(nhaCungCap, nhanVien, tongTien);
+        PhieuNhapProcess phieuNhapProcess = new PhieuNhapProcess();
+        phieuNhapProcess.themPhieuNhap(nhaCungCap, nhanVien, tongTien);
 
-        int maPN = phieuNhapBUS.getLastID();
-        CTPhieuNhapBUS ctPhieuNhapBUS = new CTPhieuNhapBUS();
+        int maPN = phieuNhapProcess.getLastID();
+        CTPhieuNhapProcess ctPhieuNhapProcess = new CTPhieuNhapProcess();
 
         String hd = "<style> "
                 + "table {"
@@ -174,7 +174,7 @@ public class XuatPhieuNhapGUI extends javax.swing.JDialog {
             //===================LƯU CTPN VÀO DB=================
             //===================================================
             ctpn.setMaPN(maPN);
-            ctPhieuNhapBUS.luuCTPhieuNhap(ctpn);
+            ctPhieuNhapProcess.luuCTPhieuNhap(ctpn);
         }
         
         hd += "<tr>";

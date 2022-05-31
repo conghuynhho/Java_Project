@@ -5,12 +5,12 @@ import Model.HoaDon;
 import Model.SanPham;
 import Model.CTHoaDon;
 import Model.NhanVien;
-import Process.LoaiBUS;
-import Process.NhanVienBUS;
-import Process.HoaDonBUS;
-import Process.CTHoaDonBUS;
-import Process.DangNhapBUS;
-import Process.SanPhamBUS;
+import Process.LoaiProcess;
+import Process.NhanVienProcess;
+import Process.HoaDonProcess;
+import Process.CTHoaDonProcess;
+import Process.DangNhapProcess;
+import Process.SanPhamProcess;
 
 import static Main.Main.changLNF;
 
@@ -31,10 +31,10 @@ import javax.swing.text.*;
 
 public class PnQuanLyBanHangGUI extends JPanel {
 
-    private SanPhamBUS spBUS = new SanPhamBUS();
-    private NhanVienBUS nvBUS = new NhanVienBUS();
-    private LoaiBUS loaiBUS = new LoaiBUS();
-    private HoaDonBUS hoaDonBUS = new HoaDonBUS();
+    private SanPhamProcess spBUS = new SanPhamProcess();
+    private NhanVienProcess nvBUS = new NhanVienProcess();
+    private LoaiProcess loaiProcess = new LoaiProcess();
+    private HoaDonProcess hoaDonProcess = new HoaDonProcess();
 
     JLabel lblTabbedBanHang, lblTabbedHoaDon;
     final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
@@ -892,7 +892,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
     private void loadDataComboboxLoaiBanSP() {
         cmbLoaiSPBanHang.removeAllItems();
         cmbLoaiSPBanHang.addItem("0 - Chọn loại");
-        ArrayList<LoaiSP> dsl = loaiBUS.getDanhSachLoai();
+        ArrayList<LoaiSP> dsl = loaiProcess.getDanhSachLoai();
 
         for (LoaiSP loai : dsl) {
             if (!loai.getTenLoai().equalsIgnoreCase("Nguyên liệu")) {
@@ -912,7 +912,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
         for (int i = 0; i < cmbNhanVienBan.getItemCount(); i++) {
             String[] cmbValue = cmbNhanVienBan.getItemAt(i).split(" - ");
-            if (cmbValue[0].equals(DangNhapBUS.taiKhoanLogin.getMaNhanVien() + "")) {
+            if (cmbValue[0].equals(DangNhapProcess.taiKhoanLogin.getMaNhanVien() + "")) {
                 cmbNhanVienBan.setSelectedIndex(i);
                 break;
             }
@@ -1149,7 +1149,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
     }
 
     private void loadDataListHoaDon() {
-        ArrayList<HoaDon> dshd = hoaDonBUS.getListHoaDon();
+        ArrayList<HoaDon> dshd = hoaDonProcess.getListHoaDon();
         addDataListHoaDon(dshd);
     }
 
@@ -1169,7 +1169,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         String hoaDon = listHoaDon.getSelectedValue();
         String[] stMaHD = hoaDon.split(" | ");
 
-        HoaDon hd = hoaDonBUS.getHoaDon(stMaHD[0]);
+        HoaDon hd = hoaDonProcess.getHoaDon(stMaHD[0]);
         txtMaHD.setText(hd.getMaHD() + "");
         txtMaKH.setText(hd.getMaKH() + "");
         txtMaNV.setText(hd.getMaNV() + "");
@@ -1182,7 +1182,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         loadDataTblCTHoaDon(stMaHD[0]);
     }
 
-    private CTHoaDonBUS ctHDBUS = new CTHoaDonBUS();
+    private CTHoaDonProcess ctHDBUS = new CTHoaDonProcess();
 
     private void loadDataTblCTHoaDon() {
         ctHDBUS.docListCTHoaDon();
@@ -1234,12 +1234,12 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
 
     private void xuLyTimTheoKhoangNgay() {
-        ArrayList<HoaDon> listHoaDon = hoaDonBUS.getListHoaDonTheoNgay(txtMinNgayLap.getText(), txtMaxNgayLap.getText());
+        ArrayList<HoaDon> listHoaDon = hoaDonProcess.getListHoaDonTheoNgay(txtMinNgayLap.getText(), txtMaxNgayLap.getText());
         addDataListHoaDon(listHoaDon);
     }
 
     private void xuLyTimTheoKhoangGia() {
-        ArrayList<HoaDon> listHoaDon = hoaDonBUS.getListHoaDonTheoGia(txtMinSearch.getText(), txtMaxSearch.getText());
+        ArrayList<HoaDon> listHoaDon = hoaDonProcess.getListHoaDonTheoGia(txtMinSearch.getText(), txtMaxSearch.getText());
         addDataListHoaDon(listHoaDon);
     }
 }

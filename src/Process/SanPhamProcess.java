@@ -1,17 +1,17 @@
 package Process;
 
-import Database.SanPhamDAO;
+import Database.SanPhamDB;
 import Model.SanPham;
 import Utils.MyDialog;
 
 import java.util.ArrayList;
 
-public class SanPhamBUS {
+public class SanPhamProcess {
 
     private ArrayList<SanPham> listSanPham = null;
-    private SanPhamDAO spDAO = new SanPhamDAO();
+    private SanPhamDB spDAO = new SanPhamDB();
 
-    public SanPhamBUS() {
+    public SanPhamProcess() {
         docListSanPham();
     }
 
