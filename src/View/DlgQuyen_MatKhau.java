@@ -19,7 +19,7 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setModal(true);
-        Image icon = Toolkit.getDefaultToolkit().getImage("image/ManagerUI/icon-app.png");
+        Image icon = Toolkit.getDefaultToolkit().getImage("resources/image/ManagerUI/icon-app.png");
         this.setIconImage(icon);
 
         loadDataCmbQuyen();

@@ -49,18 +49,18 @@ public class DangNhapGUI extends JFrame {
     private void addControls() {
         Container con = getContentPane();
 
-        pnMain = new ImagePanel("image/LoginUI/background-login.png");
+        pnMain = new ImagePanel("resources/image/LoginUI/background-login.png");
         pnMain.setLayout(null);
 
-        btnExit = new JLabel(new ImageIcon("image/LoginUI/btn-close.png"));
+        btnExit = new JLabel(new ImageIcon("resources/image/LoginUI/btn-close.png"));
         btnExit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnExit.setBounds(399, 118, 40, 40);
 
-        btnLogin = new JLabel(new ImageIcon("image/LoginUI/btn-login.png"));
+        btnLogin = new JLabel(new ImageIcon("resources/image/LoginUI/btn-login.png"));
         btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnLogin.setBounds(24, 513, 392, 55);
 
-        btnForgot = new JLabel(new ImageIcon("image/LoginUI/btn-forgot.png"));
+        btnForgot = new JLabel(new ImageIcon("resources/image/LoginUI/btn-forgot.png"));
         btnForgot.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnForgot.setBounds(138, 575, 164, 30);
 
@@ -119,12 +119,12 @@ public class DangNhapGUI extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                btnExit.setIcon(new ImageIcon("image/LoginUI/btn-close--hover.png"));
+                btnExit.setIcon(new ImageIcon("resources/image/LoginUI/btn-close--hover.png"));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnExit.setIcon(new ImageIcon("image/LoginUI/btn-close.png"));
+                btnExit.setIcon(new ImageIcon("resources/image/LoginUI/btn-close.png"));
             }
         });
         txtUser.addActionListener(new ActionListener() {
@@ -155,12 +155,12 @@ public class DangNhapGUI extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                btnForgot.setIcon(new ImageIcon("image/LoginUI/btn-forgot--hover.png"));
+                btnForgot.setIcon(new ImageIcon("resources/image/LoginUI/btn-forgot--hover.png"));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnForgot.setIcon(new ImageIcon("image/LoginUI/btn-forgot.png"));
+                btnForgot.setIcon(new ImageIcon("resources/image/LoginUI/btn-forgot.png"));
             }
         });
         btnLogin.addMouseListener(new MouseListener() {
@@ -179,12 +179,12 @@ public class DangNhapGUI extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                btnLogin.setIcon(new ImageIcon("image/LoginUI/btn-login--hover.png"));
+                btnLogin.setIcon(new ImageIcon("resources/image/LoginUI/btn-login--hover.png"));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnLogin.setIcon(new ImageIcon("image/LoginUI/btn-login.png"));
+                btnLogin.setIcon(new ImageIcon("resources/image/LoginUI/btn-login.png"));
             }
         });
     }
@@ -233,7 +233,7 @@ public class DangNhapGUI extends JFrame {
     }
 
     public void showWindow() {
-        Image icon = Toolkit.getDefaultToolkit().getImage("image/ManagerUI/icon-app.png");
+        Image icon = Toolkit.getDefaultToolkit().getImage("resources/image/ManagerUI/icon-app.png");
         this.setIconImage(icon);
         this.setVisible(true);
     }

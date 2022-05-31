@@ -37,8 +37,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
     private HoaDonProcess hoaDonProcess = new HoaDonProcess();
 
     JLabel lblTabbedBanHang, lblTabbedHoaDon;
-    final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
-    final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
+    final ImageIcon tabbedSelected = new ImageIcon("resources/image/ManagerUI/tabbed-btn--selected.png");
+    final ImageIcon tabbedDefault = new ImageIcon("resources/image/ManagerUI/tabbed-btn.png");
     final Color colorPanel = new Color(247, 247, 247);
     CardLayout cardBanHangGroup = new CardLayout();
     JPanel pnCardTabBanHang;
@@ -119,7 +119,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         JPanel pnTitleBanHang = new TransparentPanel();
         JLabel lblTitleBanHang = new JLabel("Danh sách sản phẩm");
         lblTitleBanHang.setFont(new Font("Arial", Font.BOLD, 28));
-        btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
+        btnReset = new JButton(new ImageIcon("resources/image/Refresh-icon.png"));
         btnReset.setFocusPainted(false);
         btnReset.setPreferredSize(new Dimension(40, 40));
         pnTitleBanHang.add(lblTitleBanHang);
@@ -302,7 +302,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         for (JLabel lbl : btnSPList) {
             lbl.setFont(font);
             lbl.setForeground(Color.white);
-            lbl.setIcon(new ImageIcon("image/ManagerUI/btn-BanHang.png"));
+            lbl.setIcon(new ImageIcon("resources/image/ManagerUI/btn-BanHang.png"));
             lbl.setHorizontalTextPosition(JLabel.CENTER);
             lbl.setVerticalTextPosition(JLabel.CENTER);
             lbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -326,12 +326,12 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
-                    lbl.setIcon(new ImageIcon("image/ManagerUI/btn-BanHang--hover.png"));
+                    lbl.setIcon(new ImageIcon("resources/image/ManagerUI/btn-BanHang--hover.png"));
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    lbl.setIcon(new ImageIcon("image/ManagerUI/btn-BanHang.png"));
+                    lbl.setIcon(new ImageIcon("resources/image/ManagerUI/btn-BanHang.png"));
                 }
             });
         }
@@ -408,7 +408,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         JPanel pnTitleHoaDon = new TransparentPanel(new FlowLayout());
         JLabel lblTitleHoaDon = new JLabel("THÔNG TIN HOÁ ĐƠN");
         lblTitleHoaDon.setFont(new Font("Tahoma", Font.BOLD, 28));
-        btnResetHoaDon = new JButton(new ImageIcon("image/Refresh-icon.png"));
+        btnResetHoaDon = new JButton(new ImageIcon("resources/image/Refresh-icon.png"));
         btnResetHoaDon.setPreferredSize(new Dimension(40, 40));
         pnTitleHoaDon.add(lblTitleHoaDon);
         pnTitleHoaDon.add(btnResetHoaDon);
@@ -531,7 +531,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         JPanel pnTitleCT = new TransparentPanel();
         lblTitleCTHD.setFont(new Font("Tahoma", Font.BOLD, 28));
 
-        btnResetCTHoaDon = new JButton(new ImageIcon("image/Refresh-icon.png"));
+        btnResetCTHoaDon = new JButton(new ImageIcon("resources/image/Refresh-icon.png"));
         btnResetCTHoaDon.setPreferredSize(new Dimension(40, 40));
         pnTitleCT.add(lblTitleCTHD);
         pnTitleCT.add(btnResetCTHoaDon);
@@ -988,18 +988,18 @@ public class PnQuanLyBanHangGUI extends JPanel {
         src = src.trim().equals("") ? "default.png" : src;
         //Xử lý ảnh
         BufferedImage img = null;
-        File fileImg = new File("image/SanPham/" + src);
+        File fileImg = new File("resources/image/SanPham/" + src);
 
         if (!fileImg.exists()) {
             src = "default.png";
-            fileImg = new File("image/SanPham/" + src);
+            fileImg = new File("resources/image/SanPham/" + src);
         }
 
         try {
             img = ImageIO.read(fileImg);
-            fileAnhSP = new File("image/SanPham/" + src);
+            fileAnhSP = new File("resources/image/SanPham/" + src);
         } catch (IOException e) {
-            fileAnhSP = new File("image/SanPham/default.png");
+            fileAnhSP = new File("resources/image/SanPham/default.png");
         }
 
         if (img != null) {

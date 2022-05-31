@@ -11,9 +11,9 @@
 ### **Phần mềm chạy tốt nhất trên Netbeans và Intellij với jdk8 và màn hình với độ phân giải >1280x900
 Mọi lỗi liên quan đến hiển thị là do màn hình máy bạn có độ phân giải màn hình quá thấp
 ## Ảnh chụp màn hình:
-![Alt text](image/ScreenShots/loginForm.png?raw=true "Form đăng nhập")
-![Alt text](image/ScreenShots/saleForm.png?raw=true "Màn hình chính")
-![Alt text](image/ScreenShots/productsForm.png?raw=true "Quản lý sản phẩm")
-![Alt text](image/ScreenShots/admin.png?raw=true "Phân quyền")
+![Alt text](resources/resources/image/ScreenShots/loginForm.png?raw=true "Form đăng nhập")
+![Alt text](resources/resources/image/ScreenShots/saleForm.png?raw=true "Màn hình chính")
+![Alt text](resources/resources/image/ScreenShots/productsForm.png?raw=true "Quản lý sản phẩm")
+![Alt text](resources/resources/image/ScreenShots/admin.png?raw=true "Phân quyền")
 
 

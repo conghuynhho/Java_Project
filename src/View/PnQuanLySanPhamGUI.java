@@ -71,7 +71,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
         JPanel pnTitle = new TransparentPanel();
         JLabel lblTitle = new JLabel("<html><h1>QUẢN LÝ SẢN PHẨM</h1></html>");
-        btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
+        btnReset = new JButton(new ImageIcon("resources/image/Refresh-icon.png"));
         btnReset.setPreferredSize(new Dimension(40, 40));
         pnTitle.add(lblTitle);
         pnTitle.add(btnReset);
@@ -194,12 +194,12 @@ public class PnQuanLySanPhamGUI extends JPanel {
         btnXuatExcel.setFont(fontButton);
         btnNhapExcel.setFont(fontButton);
 
-        btnThem.setIcon(new ImageIcon("image/add-icon.png"));
-        btnSua.setIcon(new ImageIcon("image/Pencil-icon.png"));
-        btnXoa.setIcon(new ImageIcon("image/delete-icon.png"));
-        btnTim.setIcon(new ImageIcon("image/Search-icon.png"));
-        btnXuatExcel.setIcon(new ImageIcon("image/excel-icon.png"));
-        btnNhapExcel.setIcon(new ImageIcon("image/excel-icon.png"));
+        btnThem.setIcon(new ImageIcon("resources/image/add-icon.png"));
+        btnSua.setIcon(new ImageIcon("resources/image/Pencil-icon.png"));
+        btnXoa.setIcon(new ImageIcon("resources/image/delete-icon.png"));
+        btnTim.setIcon(new ImageIcon("resources/image/Search-icon.png"));
+        btnXuatExcel.setIcon(new ImageIcon("resources/image/excel-icon.png"));
+        btnNhapExcel.setIcon(new ImageIcon("resources/image/excel-icon.png"));
 
         JPanel pnTimKiem = new TransparentPanel();
         JLabel lblTimKiem = new JLabel("Từ khoá tìm");
@@ -420,7 +420,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
                 }
             }
             cmbLoai.setSelectedIndex(flag);
-            loadAnh("image/SanPham/" + anh);
+            loadAnh("resources/image/SanPham/" + anh);
         }
     }
 
@@ -512,7 +512,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
             File initialImage = new File(fileAnhSP.getPath());
             bImage = ImageIO.read(initialImage);
 
-            ImageIO.write(bImage, "png", new File("image/SanPham/" + fileAnhSP.getName()));
+            ImageIO.write(bImage, "png", new File("resources/image/SanPham/" + fileAnhSP.getName()));
 
         } catch (IOException e) {
             System.out.println("Exception occured :" + e.getMessage());
@@ -520,7 +520,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     }
 
     private void xuLyChonAnh() {
-        JFileChooser fileChooser = new MyFileChooser("image/SanPham/");
+        JFileChooser fileChooser = new MyFileChooser("resources/image/SanPham/");
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "Tệp hình ảnh", "jpg", "png", "jpeg");
         fileChooser.setFileFilter(filter);
@@ -540,7 +540,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
         if (!fileImg.exists()) {
             src = "default.png";
-            fileImg = new File("image/SanPham/" + src);
+            fileImg = new File("resources/image/SanPham/" + src);
         }
 
         try {

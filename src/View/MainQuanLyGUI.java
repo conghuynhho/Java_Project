@@ -14,7 +14,7 @@ public class MainQuanLyGUI extends JFrame {
     public MainQuanLyGUI() {
         this.setTitle("Phần mềm quản lý cửa hàng pizza");
         this.setSize(1280, 900);
-        Image icon = Toolkit.getDefaultToolkit().getImage("image/ManagerUI/icon-app.png");
+        Image icon = Toolkit.getDefaultToolkit().getImage("resources/image/ManagerUI/icon-app.png");
         this.setIconImage(icon);
         addControls();
         addEvents();
@@ -62,22 +62,22 @@ public class MainQuanLyGUI extends JFrame {
         pnTitle.setPreferredSize(new Dimension(width, 46));
         pnTitle.setBackground(new Color(242, 153, 74));
 
-        btnDoiMatKhau = new JLabel(new ImageIcon("image/ManagerUI/icons8_gear_46px.png"));
+        btnDoiMatKhau = new JLabel(new ImageIcon("resources/image/ManagerUI/icons8_gear_46px.png"));
         btnDoiMatKhau.setToolTipText("Đổi mật khẩu");
         btnDoiMatKhau.setBounds(0, 0, 46, 46);
         btnDoiMatKhau.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pnTitle.add(btnDoiMatKhau);
 
-        JLabel lblTitleText = new JLabel(new ImageIcon("image/ManagerUI/title-text.png"));
+        JLabel lblTitleText = new JLabel(new ImageIcon("resources/image/ManagerUI/title-text.png"));
         lblTitleText.setBounds(width / 2 - 428 / 2, 3, 428, 38);
         pnTitle.add(lblTitleText);
 
-        btnMinimize = new JLabel(new ImageIcon("image/ManagerUI/btn-minimize.png"));
+        btnMinimize = new JLabel(new ImageIcon("resources/image/ManagerUI/btn-minimize.png"));
         btnMinimize.setBounds(width - 85, 5, 38, 35);
         btnMinimize.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pnTitle.add(btnMinimize);
 
-        btnClose = new JLabel(new ImageIcon("image/ManagerUI/btn-close.png"));
+        btnClose = new JLabel(new ImageIcon("resources/image/ManagerUI/btn-close.png"));
         btnClose.setBounds(width - 40, 5, 35, 35);
         btnClose.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pnTitle.add(btnClose);
@@ -93,17 +93,17 @@ public class MainQuanLyGUI extends JFrame {
         pnMenuLeft.setBackground(clLeftItem);
         pnMenuLeft.setLayout(new BoxLayout(pnMenuLeft, BoxLayout.Y_AXIS));
 
-        JLabel lblAvatar = new JLabel(new ImageIcon("image/ManagerUI/avatar.png"), JLabel.CENTER);
+        JLabel lblAvatar = new JLabel(new ImageIcon("resources/image/ManagerUI/avatar.png"), JLabel.CENTER);
         lblAvatar.setPreferredSize(new Dimension(250, 210));
         pnMenuLeft.add(lblAvatar);
 
-        lblBanHang = new JLabel(new ImageIcon("image/ManagerUI/lblBanHang.png"));
-        lblKhuyenMai = new JLabel(new ImageIcon("image/ManagerUI/lblKhuyenMai.png"));
-        lblNhapHang = new JLabel(new ImageIcon("image/ManagerUI/lblNhapHang.png"));
-        lblSanPham = new JLabel(new ImageIcon("image/ManagerUI/lblSanPham.png"));
-        lblNhanVien = new JLabel(new ImageIcon("image/ManagerUI/lblNhanVien.png"));
-        lblKhachHang = new JLabel(new ImageIcon("image/ManagerUI/lblKhachHang.png"));
-        lblThongKe = new JLabel(new ImageIcon("image/ManagerUI/lblThongKe.png"));
+        lblBanHang = new JLabel(new ImageIcon("resources/image/ManagerUI/lblBanHang.png"));
+        lblKhuyenMai = new JLabel(new ImageIcon("resources/image/ManagerUI/lblKhuyenMai.png"));
+        lblNhapHang = new JLabel(new ImageIcon("resources/image/ManagerUI/lblNhapHang.png"));
+        lblSanPham = new JLabel(new ImageIcon("resources/image/ManagerUI/lblSanPham.png"));
+        lblNhanVien = new JLabel(new ImageIcon("resources/image/ManagerUI/lblNhanVien.png"));
+        lblKhachHang = new JLabel(new ImageIcon("resources/image/ManagerUI/lblKhachHang.png"));
+        lblThongKe = new JLabel(new ImageIcon("resources/image/ManagerUI/lblThongKe.png"));
 
         listMenuLeft = new ArrayList<>();
         listMenuLeft.add(lblBanHang);
@@ -266,12 +266,12 @@ public class MainQuanLyGUI extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                btnMinimize.setIcon(new ImageIcon("image/ManagerUI/btn-minimize--hover.png"));
+                btnMinimize.setIcon(new ImageIcon("resources/image/ManagerUI/btn-minimize--hover.png"));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnMinimize.setIcon(new ImageIcon("image/ManagerUI/btn-minimize.png"));
+                btnMinimize.setIcon(new ImageIcon("resources/image/ManagerUI/btn-minimize.png"));
             }
         });
 
@@ -291,12 +291,12 @@ public class MainQuanLyGUI extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                btnClose.setIcon(new ImageIcon("image/ManagerUI/btn-close--hover.png"));
+                btnClose.setIcon(new ImageIcon("resources/image/ManagerUI/btn-close--hover.png"));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnClose.setIcon(new ImageIcon("image/ManagerUI/btn-close.png"));
+                btnClose.setIcon(new ImageIcon("resources/image/ManagerUI/btn-close.png"));
             }
         });
 

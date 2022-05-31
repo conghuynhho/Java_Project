@@ -60,7 +60,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
         JPanel pnTitle = new TransparentPanel();
         JLabel lblTitle = new JLabel("<html><h1>QUẢN LÝ KHÁCH HÀNG</h1></html>");
-        btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
+        btnReset = new JButton(new ImageIcon("resources/image/Refresh-icon.png"));
         btnReset.setPreferredSize(new Dimension(40, 40));
         pnTitle.add(lblTitle);
         pnTitle.add(btnReset);
@@ -142,9 +142,9 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         btnSua = new JButton("Lưu");
         btnXoa = new JButton("Xoá");
 
-        btnThem.setIcon(new ImageIcon("image/add-icon.png"));
-        btnSua.setIcon(new ImageIcon("image/Pencil-icon.png"));
-        btnXoa.setIcon(new ImageIcon("image/delete-icon.png"));
+        btnThem.setIcon(new ImageIcon("resources/image/add-icon.png"));
+        btnSua.setIcon(new ImageIcon("resources/image/Pencil-icon.png"));
+        btnXoa.setIcon(new ImageIcon("resources/image/delete-icon.png"));
         Font fontButton = new Font("Tahoma", Font.PLAIN, 16);
 
         btnThem.setFont(fontButton);
@@ -156,9 +156,9 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         pnButton.add(btnSua);
         pnButton.add(btnXoa);
 
-        btnThem.setIcon(new ImageIcon("image/add-icon.png"));
-        btnSua.setIcon(new ImageIcon("image/Pencil-icon.png"));
-        btnXoa.setIcon(new ImageIcon("image/delete-icon.png"));
+        btnThem.setIcon(new ImageIcon("resources/image/add-icon.png"));
+        btnSua.setIcon(new ImageIcon("resources/image/Pencil-icon.png"));
+        btnXoa.setIcon(new ImageIcon("resources/image/delete-icon.png"));
         Dimension btnSize = btnThem.getPreferredSize();
         btnThem.setPreferredSize(btnSize);
         btnSua.setPreferredSize(btnSize);
@@ -185,8 +185,8 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         txtMaxChiTieu.setHorizontalAlignment(JTextField.CENTER);
         txtMinchiTieu.setFont(font);
         txtMaxChiTieu.setFont(font);
-        btnTim = new JButton(new ImageIcon("image/Search-icon.png"));
-        btnTim = new JButton(new ImageIcon("image/Search-icon.png"));
+        btnTim = new JButton(new ImageIcon("resources/image/Search-icon.png"));
+        btnTim = new JButton(new ImageIcon("resources/image/Search-icon.png"));
         pnTimGioiHan.add(lblMin);
         pnTimGioiHan.add(txtMinchiTieu);
         pnTimGioiHan.add(lblMax);

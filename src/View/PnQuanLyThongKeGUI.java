@@ -59,11 +59,11 @@ public class PnQuanLyThongKeGUI extends JPanel {
 
         lblTileThongKeTong = new JLabel("THỐNG KÊ TỔNG QUÁT", JLabel.CENTER);
         lblTileThongKeTong.setFont(new Font("Tahoma", Font.BOLD, 28));
-        btnView = new JButton(new ImageIcon("image/icons8_view_40px.png"));
-        lblBackgroundThucDon = new JLabel(new ImageIcon("image/ManagerUI/thongKeMon.png"));
-        lblBackgroundKhachHang = new JLabel(new ImageIcon("image/ManagerUI/thongKeKhachHang.png"));
-        lblBackgroundNhanVien = new JLabel(new ImageIcon("image/ManagerUI/thongKeNhanVien.png"));
-        lblBackgroundDoanhThu = new JLabel(new ImageIcon("image/ManagerUI/thongKeDoanhThu.png"));
+        btnView = new JButton(new ImageIcon("resources/image/icons8_view_40px.png"));
+        lblBackgroundThucDon = new JLabel(new ImageIcon("resources/image/ManagerUI/thongKeMon.png"));
+        lblBackgroundKhachHang = new JLabel(new ImageIcon("resources/image/ManagerUI/thongKeKhachHang.png"));
+        lblBackgroundNhanVien = new JLabel(new ImageIcon("resources/image/ManagerUI/thongKeNhanVien.png"));
+        lblBackgroundDoanhThu = new JLabel(new ImageIcon("resources/image/ManagerUI/thongKeDoanhThu.png"));
 
         lblTileThongKeTong.setBounds(0, 15, w, 50);
         btnView.setBounds(10, 10, 45, 45);
@@ -155,7 +155,7 @@ public class PnQuanLyThongKeGUI extends JPanel {
         btn_filter.setBounds((w / 2 - 100 / 2) + 140, 560, 100, 35);
 //        pnThongKeTong.add(btn_filter);
 
-        JLabel lblBackgroundBang = new JLabel(new ImageIcon("image/ManagerUI/bangThongKe.png"));
+        JLabel lblBackgroundBang = new JLabel(new ImageIcon("resources/image/ManagerUI/bangThongKe.png"));
         lblBackgroundBang.setBounds(98, 610, 834, 189);
         pnThongKeTong.add(lblBackgroundBang);
 
@@ -166,12 +166,12 @@ public class PnQuanLyThongKeGUI extends JPanel {
         // ==============================================
         pnThongKeChiTiet = new TransparentPanel(null);
 
-        btnBack = new JButton(new ImageIcon("image/icons8_undo_40px.png"));
+        btnBack = new JButton(new ImageIcon("resources/image/icons8_undo_40px.png"));
         btnBack.setToolTipText("Quay lại");
         btnBack.setBounds(10, 10, 45, 45);
         pnThongKeChiTiet.add(btnBack);
 
-        JLabel lblBackGroundBangChiTiet = new JLabel(new ImageIcon("image/ManagerUI/bangChiTiet.png"));
+        JLabel lblBackGroundBangChiTiet = new JLabel(new ImageIcon("resources/image/ManagerUI/bangChiTiet.png"));
         lblBackGroundBangChiTiet.setBounds(172, 10, 686, 363);
         pnThongKeChiTiet.add(lblBackGroundBangChiTiet);
 
