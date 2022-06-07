@@ -95,6 +95,8 @@ public class MainQuanLyGUI extends JFrame {
 
         JLabel lblAvatar = new JLabel(new ImageIcon("resources/image/ManagerUI/avatar.png"), JLabel.CENTER);
         lblAvatar.setPreferredSize(new Dimension(250, 210));
+        lblAvatar.setHorizontalAlignment(SwingConstants.CENTER);
+        lblAvatar.setHorizontalTextPosition(SwingConstants.CENTER);
         pnMenuLeft.add(lblAvatar);
 
         lblBanHang = new JLabel(new ImageIcon("resources/image/ManagerUI/lblBanHang.png"));
